@@ -21,6 +21,9 @@ add_message_files(
   HighCmd.msg
   HighState.msg
   TaskConfig.msg
+  FootPos.msg
+  FootForce.msg
+  Observation.msg
 )
 
 generate_messages(
