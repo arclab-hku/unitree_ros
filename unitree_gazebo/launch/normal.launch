@@ -5,7 +5,7 @@
     <arg name="robot_path" value="(find $(arg rname)_description)"/>
     <arg name="dollar" value="$"/>
 
-    <arg name="paused" default="true"/>
+    <arg name="paused" default="false"/>
     <arg name="use_sim_time" default="true"/>
     <arg name="gui" default="true"/>
     <arg name="headless" default="false"/>
@@ -22,26 +22,29 @@
         <arg name="headless" value="$(arg headless)"/>
     </include>
 
-    <!-- Load the URDF into the ROS Parameter Server -->
-    <param name="robot_description"
-           command="$(find xacro)/xacro --inorder '$(arg dollar)$(arg robot_path)/xacro/robot.xacro' 
-           DEBUG:=$(arg user_debug)"/>
 
-    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-    <!-- Set trunk and joint positions at startup -->
-    <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen"
-          args="-urdf -z 0.1 -model $(arg rname)_gazebo -param robot_description -unpause  -R 0 -P 0 -Y 3.14"/>
-
-
-     <group if="$(eval wname == 'competition')">
+    <group if="$(eval wname == 'competition')">
         <!-- Load the URDF into the ROS Parameter Server -->
           <param name="map_description"
             command="$(find xacro)/xacro --inorder '$(find unitree_gazebo)/urdf/map.urdf.xacro'" />
 
         <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
          <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
-         args="-urdf -param map_description -model competition_map -x -8.5 -y -2.5 -z 0  " />
+         args="-urdf -param map_description -model competition_map -x 9 -y 3 -z 0  -R 0 -P 0 -Y 3.14 " />
     </group>
+
+
+    <!-- Load the URDF into the ROS Parameter Server -->
+    <param name="robot_description"
+           command="$(find xacro)/xacro --inorder '$(arg dollar)$(arg robot_path)/xacro/robot.xacro'
+           DEBUG:=$(arg user_debug)"/>
+
+    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+    <!-- Set trunk and joint positions at startup -->
+    <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen"
+          args="-urdf -z 0.1 -model $(arg rname)_gazebo -param robot_description -unpause "/>
+
+
 
 
     <!-- -R -0 -P 0 -Y 0 -->
