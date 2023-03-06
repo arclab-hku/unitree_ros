@@ -27,7 +27,7 @@
           rpy="0 0 0" />
         <geometry>
           <mesh
-            filename="package://unitree_gazebo/meshes/Akro_mils.stl"/>
+            filename="package://ICRA2023_Quadruped_Competition/meshes/Akro_mils.stl"/>
         </geometry>
         <material
           name="">
@@ -40,14 +40,19 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh
-            filename="package://unitree_gazebo/meshes/Akro_mils.stl" />
+          <box size="2.0955e-01 2.9885e-01 4.0000e-01" />
         </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 0 0 1" />
+        </material>
       </collision>
     </link>
 
     <gazebo reference="Akro_mils_${handle}">
       <material>Gazebo/RedBright</material>
+      <static>true</static>
     </gazebo>
 
   </xacro:macro>

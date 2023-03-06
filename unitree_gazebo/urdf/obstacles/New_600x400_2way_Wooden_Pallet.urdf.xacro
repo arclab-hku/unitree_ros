@@ -18,7 +18,7 @@
           rpy="0 0 0" />
         <geometry>
           <mesh
-            filename="package://unitree_gazebo/meshes/New_600x400_2way_Wooden_Pallet.stl"/>
+            filename="package://ICRA2023_Quadruped_Competition/meshes/New_600x400_2way_Wooden_Pallet.stl"/>
         </geometry>
         <material
           name="wood">
@@ -250,6 +250,7 @@
   
     <gazebo reference="New_600x400_2way_Wooden_Pallet_${handle}">
       <material>Gazebo/Wood</material>
+      <static>true</static>
     </gazebo>
 
   </xacro:macro>

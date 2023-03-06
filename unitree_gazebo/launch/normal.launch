@@ -23,15 +23,6 @@
     </include>
 
 
-    <group if="$(eval wname == 'competition')">
-        <!-- Load the URDF into the ROS Parameter Server -->
-          <param name="map_description"
-            command="$(find xacro)/xacro --inorder '$(find unitree_gazebo)/urdf/map.urdf.xacro'" />
-
-        <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-         <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
-         args="-urdf -param map_description -model competition_map -x 9 -y 3 -z 0  -R 0 -P 0 -Y 3.14 " />
-    </group>
 
 
     <!-- Load the URDF into the ROS Parameter Server -->
@@ -51,7 +42,6 @@
     <!-- Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(arg dollar)$(arg robot_path)/config/robot_control.yaml" command="load"/>
 
-    <!-- load the controllers -->
     <!-- load the controllers -->
     <group if="$(eval rname != 'a1_rw')">
         <node pkg="controller_manager" type="spawner" name="controller_spawner" respawn="false"
