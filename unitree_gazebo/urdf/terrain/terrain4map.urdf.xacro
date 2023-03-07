@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="competition_map_inner">
+	<gazebo>
+	<static>true</static>
+	</gazebo>
+	<link name="world"/>
+
+	<xacro:include filename="$(find unitree_gazebo)/urdf/obstacles/materials.xacro" />
+	
+	<!-- Terrain 4 -->
+	<xacro:include filename="$(find unitree_gazebo)/urdf/test/terrain4_inner.urdf.xacro"/>
+	<xacro:include filename="$(find unitree_gazebo)/urdf/test/terrain4_inner2.urdf.xacro"/>
+	<xacro:terrain4_inner parent="world" handle="1" position="-4.2200e+00 -9.1500e-01 +2.9750e-01" orientation="0 0 0"/>
+	<xacro:terrain4_inner2 parent="world" handle="1" position="-4.2252e+00 -8.5006e-01 +1.5499e-01" orientation="0 0 0"/> 
+
+
+</robot>
