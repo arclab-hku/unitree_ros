@@ -52,7 +52,7 @@ gym.add_ground(sim, plane_params)
 
 # Load map asset
 asset_root = PKG_PATH.rsplit('/',2)[0]
-asset_file = "/".join(PKG_PATH.rsplit('/',2)[1:]) + "/urdf/terrain/terrain3map.urdf"
+asset_file = "/".join(PKG_PATH.rsplit('/',2)[1:]) + "/urdf/terrain/innermap.urdf"
 
 asset_options = gymapi.AssetOptions()
 asset_options.fix_base_link = True
