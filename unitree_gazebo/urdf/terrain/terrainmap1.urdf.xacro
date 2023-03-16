@@ -7,14 +7,10 @@
 
 	<xacro:include filename="$(find unitree_gazebo)/urdf/obstacles/materials.xacro" />
 	
-	<!-- Terrain 1,2,3,4,6 
+	<!-- Terrain 1,2,3,4,6 -->
 	<xacro:include filename="$(find unitree_gazebo)/urdf/test/terrain_inner.urdf.xacro"/>
 	<xacro:terrain_inner parent="world" handle="1" position="+4.7692e-01 +2.3249e-01 +2.9749e-01" orientation="0 0 0"/> -->
 
-	<!-- Terrain 1 -->
-	<xacro:include filename="$(find unitree_gazebo)/urdf/test/terrain1_inner.urdf.xacro"/>
-	<xacro:terrain1_inner parent="world" handle="1" position="+4.3601e+00 +1.2215e+00 +2.9750e-01" orientation="0 0 0"/>  
-
-
+	
 
 </robot>
