@@ -31,7 +31,7 @@
 
             <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
             <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
-            args="-urdf -param map_description -model competition_map -x 3 -y 1 -z 0  -R 0 -P 0 -Y 3.14 " />
+            args="-urdf -param map_description -model competition_map -x 9 -y 1 -z 0  -R 0 -P 0 -Y 3.14 " />
    
     </group>
 
@@ -43,10 +43,8 @@
 
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <!-- Set trunk and joint positions at startup -->
-    <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen"
+        <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen"
           args="-urdf -z 1 -model $(arg rname)_gazebo -param robot_description -unpause "/>
-
-
 
 
     <!-- -R -0 -P 0 -Y 0 -->
@@ -89,11 +87,5 @@
 
     <!-- add a low state publisher -->
     <node pkg="unitree_controller" type="unitree_gazebo_low_state_pub" name="gazebo_low_state_pub" output="screen"/>
-
-    <!-- launch conveyor belt -->
-    <group if="$(eval conveyor == 1)">
-        <node ns="conveyor" name="spawn_model_belt" pkg="gazebo_ros" type="spawn_model" args="-file $(find demo_world)/urdf/conveyor.urdf -urdf -model conveyor_belt" respawn="false" output="screen" />
-        <node name="cube_spawner" pkg="demo_world" type="demo.py" output="screen"/>
-    </group>
 
 </launch>
