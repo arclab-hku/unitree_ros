@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+
+  <!-- Name of this panda -->
+  <xacro:arg name="arm_id" default="panda"/>
+
+  <!-- Should a franka_gripper be mounted at the flange? -->
+  <xacro:arg name="hand" default="true"/>
+
+  <!-- Is the robot to be used with a simulator or control software -->
+  <!-- Supported: none, gazebo, mujoco -->
+  <xacro:arg name="simulator" default="none"/>
+  <xacro:property name="simulator" value="$(arg simulator)"/>
+
+  <xacro:include filename="$(find arclab_robot_description)/robots/manipulator/franka/panda_arm.xacro"/>
+  <xacro:include filename="$(find arclab_robot_description)/robots/manipulator/franka/panda_hand.xacro"/>
+
+  <xacro:if value="${simulator == 'mujoco'}">
+    <!-- The meshdir to be used by MJCF need not be the same as the URDF -->
+    <mujoco>
+      <compiler meshdir="./meshes" balanceinertia="true" strippath="true" discardvisual="true"/>
+    </mujoco>
+  </xacro:if>
+
+  <xacro:panda_arm arm_id="$(arg arm_id)" simulator="${simulator}"/>
+
+  <xacro:panda_hand arm_id="$(arg arm_id)" xyz="0 0 0.107" rpy="0 0 ${-pi/4}" connected_to="$(arg arm_id)_link7"
+                    simulator="${simulator}"/>
+
+</robot>

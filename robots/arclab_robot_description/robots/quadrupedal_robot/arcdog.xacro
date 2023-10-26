@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+
+    <xacro:arg name="robot_type" default="arcdog"/>
+
+    <!-- Is the robot to be used with a simulator or control software -->
+    <!-- Supported: none, gazebo, mujoco -->
+    <xacro:arg name="simulator" default="test"/>
+    <xacro:property name="simulator" value="$(arg simulator)"/>
+
+    <xacro:include filename="$(find arclab_robot_description)/robots/quadrupedal_robot/common/materials.xacro"/>
+    <xacro:include filename="$(find arclab_robot_description)/robots/quadrupedal_robot/common/leg.xacro"/>
+    <xacro:include filename="$(find arclab_robot_description)/robots/quadrupedal_robot/common/gazebo.xacro"/>
+    <xacro:include filename="$(find arclab_robot_description)/robots/quadrupedal_robot/common/imu.xacro"/>
+
+    <xacro:include filename="$(find arclab_robot_description)/robots/quadrupedal_robot/$(arg robot_type)/const.xacro"/>
+
+
+    <link name="base">
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://arclab_robot_description/meshes/quadrupedal_robot/arcdog/visual/trunk.dae" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="${trunk_length} ${trunk_width} ${trunk_height}"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="${trunk_com_x} ${trunk_com_y} ${trunk_com_z}"/>
+            <mass value="${trunk_mass}"/>
+            <inertia
+                    ixx="${trunk_ixx}" ixy="${trunk_ixy}" ixz="${trunk_ixz}"
+                    iyy="${trunk_iyy}" iyz="${trunk_iyz}"
+                    izz="${trunk_izz}"/>
+        </inertial>
+    </link>
+
+    <xacro:IMU connected_to="base" imu_name="unitree_imu" xyz="0. 0. 0." rpy="0. 0. 0."/>
+
+    <xacro:leg prefix="FR" mirror="-1" mirror_dae="False" front_hind="1" front_hind_dae="True" simulator="${simulator}">
+        <origin rpy="0 0 0" xyz="${leg_offset_x} ${-leg_offset_y} 0"/>
+    </xacro:leg>
+
+    <xacro:leg prefix="FL" mirror="1" mirror_dae="True" front_hind="1" front_hind_dae="True" simulator="${simulator}">
+        <origin rpy="0 0 0" xyz="${leg_offset_x} ${leg_offset_y} 0"/>
+    </xacro:leg>
+
+    <xacro:leg prefix="RR" mirror="-1" mirror_dae="False" front_hind="-1" front_hind_dae="False" simulator="${simulator}">
+        <origin rpy="0 0 0" xyz="${-leg_offset_x} ${-leg_offset_y} 0"/>
+    </xacro:leg>
+
+    <xacro:leg prefix="RL" mirror="1" mirror_dae="True" front_hind="-1" front_hind_dae="False" simulator="${simulator}">
+        <origin rpy="0 0 0" xyz="${-leg_offset_x} ${leg_offset_y} 0"/>
+    </xacro:leg>
+
+</robot>
