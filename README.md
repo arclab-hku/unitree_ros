@@ -205,3 +205,17 @@ Add this overrides is very important. On my system, my libcxxwrap-julia is at
    The script will create a loop to read joint angles. Press ctrl-c to exist the loop.
 
    test_julia_swing_ctrl.jl will move the front right leg of the robot, so be careful the front right leg has enough space to move. 
+
+# Arcdog
+in the following path, it contains all the urdf and xcaro resources of arcdog. these resources are copied from ```arcdog_ros``` repo  
+```
+/robot/aeclab_robot_description
+```
+see the go1 gazebo environment:
+```
+roslaunch unitree_gazebo normal.launch
+```
+see the arcdog gazebo environment:
+```
+roslaunch unitree_gazebo normal_arcdog.launch
+```
