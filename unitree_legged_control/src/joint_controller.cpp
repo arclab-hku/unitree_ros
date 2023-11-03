@@ -6,6 +6,7 @@ Use of this source code is governed by the MPL-2.0 license, see LICENSE.
 // #include "unitree_legged_control/joint_controller.h"
 #include "joint_controller.h"
 #include <pluginlib/class_list_macros.h>
+#include "iostream"
 
 // #define rqtTune // use rqt or not
 
@@ -80,10 +81,18 @@ namespace unitree_legged_control
         if(joint_name == "FR_hip_joint" || joint_name == "FL_hip_joint" || joint_name == "RR_hip_joint" || joint_name == "RL_hip_joint"){
             isHip = true;
         }
+        if(joint_name == "FR_thigh_joint" || joint_name == "FL_thigh_joint" || joint_name == "RR_thigh_joint" || joint_name == "RL_thigh_joint"){
+            isThigh = true;
+        }
         if(joint_name == "FR_calf_joint" || joint_name == "FL_calf_joint" || joint_name == "RR_calf_joint" || joint_name == "RL_calf_joint"){
             isCalf = true;
         }        
         joint = robot->getHandle(joint_name);
+
+        std::cout<<"joint_name:"<<joint_name<<std::endl;
+        std::cout<<"isHip:"<<isHip<<std::endl;
+        std::cout<<"isThigh:"<<isThigh<<std::endl;
+        std::cout<<"isCalf:"<<isCalf<<std::endl;
 
         // Start command subscriber
         sub_ft = n.subscribe(name_space + "/" +"joint_wrench", 1, &UnitreeJointController::setTorqueCB, this);

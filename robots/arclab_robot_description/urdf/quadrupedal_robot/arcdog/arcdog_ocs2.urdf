@@ -128,7 +128,7 @@
   <gazebo reference="unitree_imu_joint">
     <disableFixedJointLumping>true</disableFixedJointLumping>
   </gazebo>
-  <joint name="FR_HAA" type="revolute">
+  <joint name="FR_hip_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0.2407 -0.051 0"/>
     <parent link="base"/>
     <child link="FR_hip"/>
@@ -156,7 +156,7 @@
       <inertia ixx="0.00095157705" ixy="-1.10967e-05" ixz="-2.66665e-06" iyy="0.00159323348" iyz="1.26718e-05" izz="0.00125451931"/>
     </inertial>
   </link>
-  <joint name="FR_HFE" type="revolute">
+  <joint name="FR_though_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 -0.0868 0"/>
     <parent link="FR_hip"/>
     <child link="FR_thigh"/>
@@ -190,7 +190,7 @@
       <inertia ixx="0.00884041519" ixy="3.381758e-05" ixz="-5.33686e-05" iyy="0.00784145389" iyz="-0.00128350622" izz="0.0026004502"/>
     </inertial>
   </link>
-  <joint name="FR_KFE" type="revolute">
+  <joint name="FR_calf_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 -0.2445"/>
     <parent link="FR_thigh"/>
     <child link="FR_calf"/>
@@ -273,7 +273,7 @@
   </gazebo>
   <transmission name="FR_HAA_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="FR_HAA">
+    <joint name="FR_hip_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="FR_HAA_motor">
@@ -283,7 +283,7 @@
   </transmission>
   <transmission name="FR_HFE_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="FR_HFE">
+    <joint name="FR_thigh_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="FR_HFE_motor">
@@ -293,7 +293,7 @@
   </transmission>
   <transmission name="FR_KFE_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="FR_KFE">
+    <joint name="FR_calf_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="FR_KFE_motor">
@@ -301,7 +301,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <joint name="FL_HAA" type="revolute">
+  <joint name="FL_hip_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0.2407 0.051 0"/>
     <parent link="base"/>
     <child link="FL_hip"/>
@@ -329,7 +329,7 @@
       <inertia ixx="0.00095157705" ixy="1.10967e-05" ixz="-2.66665e-06" iyy="0.00159323348" iyz="-1.26718e-05" izz="0.00125451931"/>
     </inertial>
   </link>
-  <joint name="FL_HFE" type="revolute">
+  <joint name="FL_though_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0.0868 0"/>
     <parent link="FL_hip"/>
     <child link="FL_thigh"/>
@@ -363,7 +363,7 @@
       <inertia ixx="0.00884041519" ixy="-3.381758e-05" ixz="-5.33686e-05" iyy="0.00784145389" iyz="0.00128350622" izz="0.0026004502"/>
     </inertial>
   </link>
-  <joint name="FL_KFE" type="revolute">
+  <joint name="FL_calf_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 -0.2445"/>
     <parent link="FL_thigh"/>
     <child link="FL_calf"/>
@@ -446,7 +446,7 @@
   </gazebo>
   <transmission name="FL_HAA_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="FL_HAA">
+    <joint name="FL_hip_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="FL_HAA_motor">
@@ -456,7 +456,7 @@
   </transmission>
   <transmission name="FL_HFE_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="FL_HFE">
+    <joint name="FL_thigh_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="FL_HFE_motor">
@@ -466,7 +466,7 @@
   </transmission>
   <transmission name="FL_KFE_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="FL_KFE">
+    <joint name="FL_calf_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="FL_KFE_motor">
@@ -474,7 +474,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <joint name="RR_HAA" type="revolute">
+  <joint name="RR_hip_joint" type="revolute">
     <origin rpy="0 0 0" xyz="-0.2407 -0.051 0"/>
     <parent link="base"/>
     <child link="RR_hip"/>
@@ -502,7 +502,7 @@
       <inertia ixx="0.00095157705" ixy="1.10967e-05" ixz="2.66665e-06" iyy="0.00159323348" iyz="1.26718e-05" izz="0.00125451931"/>
     </inertial>
   </link>
-  <joint name="RR_HFE" type="revolute">
+  <joint name="RR_though_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 -0.0868 0"/>
     <parent link="RR_hip"/>
     <child link="RR_thigh"/>
@@ -536,7 +536,7 @@
       <inertia ixx="0.00884041519" ixy="3.381758e-05" ixz="-5.33686e-05" iyy="0.00784145389" iyz="-0.00128350622" izz="0.0026004502"/>
     </inertial>
   </link>
-  <joint name="RR_KFE" type="revolute">
+  <joint name="RR_calf_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 -0.2445"/>
     <parent link="RR_thigh"/>
     <child link="RR_calf"/>
@@ -619,7 +619,7 @@
   </gazebo>
   <transmission name="RR_HAA_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="RR_HAA">
+    <joint name="RR_hip_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="RR_HAA_motor">
@@ -629,7 +629,7 @@
   </transmission>
   <transmission name="RR_HFE_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="RR_HFE">
+    <joint name="RR_thigh_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="RR_HFE_motor">
@@ -639,7 +639,7 @@
   </transmission>
   <transmission name="RR_KFE_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="RR_KFE">
+    <joint name="RR_calf_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="RR_KFE_motor">
@@ -647,7 +647,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <joint name="RL_HAA" type="revolute">
+  <joint name="RL_hip_joint" type="revolute">
     <origin rpy="0 0 0" xyz="-0.2407 0.051 0"/>
     <parent link="base"/>
     <child link="RL_hip"/>
@@ -675,7 +675,7 @@
       <inertia ixx="0.00095157705" ixy="-1.10967e-05" ixz="2.66665e-06" iyy="0.00159323348" iyz="-1.26718e-05" izz="0.00125451931"/>
     </inertial>
   </link>
-  <joint name="RL_HFE" type="revolute">
+  <joint name="RL_though_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0.0868 0"/>
     <parent link="RL_hip"/>
     <child link="RL_thigh"/>
@@ -709,7 +709,7 @@
       <inertia ixx="0.00884041519" ixy="-3.381758e-05" ixz="-5.33686e-05" iyy="0.00784145389" iyz="0.00128350622" izz="0.0026004502"/>
     </inertial>
   </link>
-  <joint name="RL_KFE" type="revolute">
+  <joint name="RL_calf_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 -0.2445"/>
     <parent link="RL_thigh"/>
     <child link="RL_calf"/>
@@ -792,7 +792,7 @@
   </gazebo>
   <transmission name="RL_HAA_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="RL_HAA">
+    <joint name="RL_hip_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="RL_HAA_motor">
@@ -802,7 +802,7 @@
   </transmission>
   <transmission name="RL_HFE_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="RL_HFE">
+    <joint name="RL_thigh_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="RL_HFE_motor">
@@ -812,7 +812,7 @@
   </transmission>
   <transmission name="RL_KFE_tran">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="RL_KFE">
+    <joint name="RL_calf_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="RL_KFE_motor">
