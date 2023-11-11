@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(unitree_controller)
 
+set(Boost_NO_BOOST_CMAKE ON)
+find_package(Boost 1.71 COMPONENTS filesystem REQUIRED)
+
 find_package(catkin REQUIRED COMPONENTS
     controller_manager
     genmsg
