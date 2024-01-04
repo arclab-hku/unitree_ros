@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakePresetLoader"><![CDATA[{
+  "useNewFormat": true
+}]]></component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="64fc23a0-4b85-4ad2-9689-677bea4fd6dc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/Lite3White/meshes/FL_HIP.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/Lite3White/meshes/FR_HIP.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/Lite3White/meshes/HL_HIP.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/Lite3White/meshes/HR_HIP.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/Lite3White/meshes/L_THIGH.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/Lite3White/meshes/R_THIGH.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/Lite3White/meshes/SHANK.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/Lite3White/meshes/TORSO.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/Lite3White/meshes/tex/bump_cross_hatch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/Lite3White/meshes/tex/bump_speckle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/Lite3White/urdf/Lite3.urdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/config/robot_control.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/launch/check_joint.rviz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/launch/lite3_rviz.launch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/meshes/FL_HIP.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/meshes/FR_HIP.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/meshes/HL_HIP.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/meshes/HR_HIP.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/meshes/L_THIGH.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/meshes/R_THIGH.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/meshes/SHANK.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/meshes/TORSO.dae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/meshes/tex/bump_cross_hatch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/meshes/tex/bump_speckle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/package.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/xacro/body.xacro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/xacro/gazebo.xacro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/xacro/imu_link.xacro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/xacro/robot.xacro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../robots/lite3_description/xacro/transmission.xacro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../robots/aliengo_description/launch/check_joint.rviz" beforeDir="false" afterPath="$PROJECT_DIR$/../robots/aliengo_description/launch/check_joint.rviz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../robots/aliengo_description/xacro/const.xacro" beforeDir="false" afterPath="$PROJECT_DIR$/../robots/aliengo_description/xacro/const.xacro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../robots/aliengo_description/xacro/leg.xacro" beforeDir="false" afterPath="$PROJECT_DIR$/../robots/aliengo_description/xacro/leg.xacro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../robots/aliengo_description/xacro/robot.xacro" beforeDir="false" afterPath="$PROJECT_DIR$/../robots/aliengo_description/xacro/robot.xacro" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2022" />
+    <option name="minorVersion" value="3.1" />
+  </component>
+  <component name="ProjectId" id="2RbMSNz1qCcyGLaW9jnvWS98Qo6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "/home/zerenluo/arclab_ws/src/unitree_ros/unitree_gazebo",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="64fc23a0-4b85-4ad2-9689-677bea4fd6dc" name="Changes" comment="" />
+      <created>1687514326815</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687514326815</updated>
+      <workItem from="1687514327884" duration="65000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
