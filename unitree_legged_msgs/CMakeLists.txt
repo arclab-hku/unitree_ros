@@ -24,6 +24,7 @@ add_message_files(
   FootPos.msg
   FootForce.msg
   Observation.msg
+  VectorFloat.msg
 )
 
 generate_messages(
