@@ -1,0 +1,17 @@
+<launch>
+
+    <arg name="user_debug" default="false"/>
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find aliengo_description)/xacro/robot.xacro'
+            DEBUG:=$(arg user_debug)"/>
+
+    <node pkg="rviz" type="rviz" name="rviz" respawn="false" output="screen"
+        args="-d $(find aliengo_description)/rviz/aliengo_rl.rviz"/>
+
+    <!-- add tf for camera -->
+    <node pkg="tf" type="static_transform_publisher" name="cam_link" args="0 0 0 0 0 0  /camera_d435_link /camera_d435_depth_frame 100" />
+    <node pkg="tf" type="static_transform_publisher" name="cam_link2" args="0 0 0 -1.57 0 -1.57 /camera_d435_depth_frame /camera_d435_depth_optical_frame  100" />
+    <node pkg="tf" type="static_transform_publisher" name="cam_link3" args="0 0 0 0 0 0  /camera_d435_link /camera_d435_color_frame 100" />
+    <node pkg="tf" type="static_transform_publisher" name="cam_link4" args="0 0 0 -1.57 0 -1.57 /camera_d435_color_frame /camera_d435_color_optical_frame  100" />
+
+</launch>

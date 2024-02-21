@@ -1,7 +1,7 @@
 <launch>
 
     <arg name="user_debug" default="false"/>
-    
+
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find aliengo_description)/xacro/robot.xacro'
             DEBUG:=$(arg user_debug)"/>
 
