@@ -9,7 +9,7 @@
     </gazebo>
 
     <gazebo>
-        <plugin name="p3d" filename="libgazebo_ros_p3d.so">
+        <plugin name="p3d_tf" filename="libgazebo_ros_p3d_tf.so">
             <always_on>true</always_on>
             <update_rate>200</update_rate>
             <bodyName>base</bodyName>
@@ -75,16 +75,21 @@
     <gazebo reference="FR_calf">
         <sensor name="FR_foot_contact" type="contact">
         <update_rate>100</update_rate>
-        <plugin name="contactPlugin" filename="libunitreeFootContactPlugin.so"/>
+        <plugin name="contactPlugin" filename="libunitreeFootContactPluginRviz.so">
+            <linkName>FR_foot</linkName>
+        </plugin>
         <contact>
             <collision>FR_calf_fixed_joint_lump__FR_foot_collision_1</collision>
         </contact>
+        
         </sensor>
     </gazebo>
     <gazebo reference="FL_calf">
         <sensor name="FL_foot_contact" type="contact">
         <update_rate>100</update_rate>
-        <plugin name="contactPlugin" filename="libunitreeFootContactPlugin.so"/>
+        <plugin name="contactPlugin" filename="libunitreeFootContactPluginRviz.so">
+            <linkName>FL_foot</linkName>
+        </plugin>
         <contact>
             <collision>FL_calf_fixed_joint_lump__FL_foot_collision_1</collision>
         </contact>
@@ -93,7 +98,9 @@
     <gazebo reference="RR_calf">
         <sensor name="RR_foot_contact" type="contact">
         <update_rate>100</update_rate>
-        <plugin name="contactPlugin" filename="libunitreeFootContactPlugin.so"/>
+        <plugin name="contactPlugin" filename="libunitreeFootContactPluginRviz.so">
+            <linkName>RR_foot</linkName>
+        </plugin>
         <contact>
             <collision>RR_calf_fixed_joint_lump__RR_foot_collision_1</collision>
         </contact>
@@ -102,7 +109,9 @@
     <gazebo reference="RL_calf">
         <sensor name="RL_foot_contact" type="contact">
         <update_rate>100</update_rate>
-        <plugin name="contactPlugin" filename="libunitreeFootContactPlugin.so"/>
+        <plugin name="contactPlugin" filename="libunitreeFootContactPluginRviz.so">
+            <linkName>RL_foot</linkName>
+        </plugin>
         <contact>
             <collision>RL_calf_fixed_joint_lump__RL_foot_collision_1</collision>
         </contact>

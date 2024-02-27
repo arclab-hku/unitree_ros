@@ -46,7 +46,7 @@ Note:
 	      <visual>
           <origin xyz="${realsense_d435_front_to_depth} ${realsense_d435_case_offset_y} 0.0" rpy="${M_PI/2} 0 ${M_PI/2}" />
           <geometry>
-            <mesh filename="package://hector_sensors_description/meshes/intel_realsense_d435/D435.dae" scale="0.001 0.001 0.001" />
+            <mesh filename="package://aliengo_description/meshes/depthCamera.dae" scale="0.001 0.001 0.001" />
           </geometry>  
         </visual>
         <collision>

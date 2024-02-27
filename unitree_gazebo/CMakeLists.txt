@@ -45,6 +45,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 add_library(unitreeFootContactPlugin SHARED plugin/foot_contact_plugin.cc)
 target_link_libraries(unitreeFootContactPlugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
+add_library(unitreeFootContactPluginRviz SHARED plugin/foot_contact_plugin_rviz.cc)
+target_link_libraries(unitreeFootContactPluginRviz ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+
 add_library(unitreeDrawForcePlugin SHARED plugin/draw_force_plugin.cc)
 target_link_libraries(unitreeDrawForcePlugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
