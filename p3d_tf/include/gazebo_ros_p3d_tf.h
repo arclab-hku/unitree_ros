@@ -31,7 +31,9 @@
 
 #include <ros/ros.h>
 #include <nav_msgs/Odometry.h>
-#include <tf/transform_broadcaster.h>
+#include <tf2_ros/transform_broadcaster.h>
+#include <tf2_msgs/TFMessage.h>
+#include <geometry_msgs/TransformStamped.h>
 
 #include <ros/callback_queue.h>
 #include <ros/advertise_options.h>
@@ -74,7 +76,7 @@ namespace gazebo
     private: ros::NodeHandle* rosnode_;
     private: ros::Publisher pub_;
 
-    boost::shared_ptr<tf::TransformBroadcaster> transform_broadcaster_;
+    boost::shared_ptr<tf2_ros::TransformBroadcaster> transform_broadcaster_;
     public: void publishTF();
 
     private: PubQueue<nav_msgs::Odometry>::Ptr pub_Queue;

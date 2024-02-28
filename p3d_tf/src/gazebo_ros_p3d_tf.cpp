@@ -136,7 +136,7 @@ void GazeboRosP3DTF::Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf)
   }
 
   this->rosnode_ = new ros::NodeHandle(this->robot_namespace_);
-  this->transform_broadcaster_ = boost::shared_ptr<tf::TransformBroadcaster> ( new tf::TransformBroadcaster() );
+  this->transform_broadcaster_ = boost::shared_ptr<tf2_ros::TransformBroadcaster> ( new tf2_ros::TransformBroadcaster() );
   // publish multi queue
   this->pmq.startServiceThread();
 
@@ -199,6 +199,8 @@ void GazeboRosP3DTF::Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf)
 #endif
   }
 
+  ROS_INFO_STREAM("\033[1;33mLoaded Plugin Gazebo_ros_p3d_tf. " << "\033[0m");
+
 
   // start custom queue for p3d
   this->callback_queue_thread_ = boost::thread(
@@ -214,17 +216,24 @@ void GazeboRosP3DTF::Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf)
 ////////////////////////////////////////////////////////////////////////////////
 void GazeboRosP3DTF::publishTF()
 {
-    ros::Time current_time = ros::Time::now();
-    std::string frame =this->link_name_;
-    std::string parent_frame = this->frame_name_;
-
     ignition::math::Pose3d pose =  this->link_->WorldPose();
+    
+    geometry_msgs::TransformStamped transform;
 
-    tf::Quaternion qt ( pose.Rot().X(), pose.Rot().Y(), pose.Rot().Z(), pose.Rot().W() );
-    tf::Vector3 vt ( pose.Pos().X(), pose.Pos().Y(), pose.Pos().Z() );
+    transform.header.stamp =  ros::Time::now();
+    transform.header.frame_id = this->frame_name_; // current: world
+    transform.child_frame_id = this->link_name_; // child: base
 
-    tf::Transform transform ( qt, vt );
-    transform_broadcaster_->sendTransform ( tf::StampedTransform ( transform, current_time, parent_frame, frame ) );
+    transform.transform.translation.x = pose.Pos().X();
+    transform.transform.translation.y = pose.Pos().Y();
+    transform.transform.translation.z = pose.Pos().Z();
+
+    transform.transform.rotation.x = pose.Rot().X();
+    transform.transform.rotation.y = pose.Rot().Y();
+    transform.transform.rotation.z = pose.Rot().Z();
+    transform.transform.rotation.w = pose.Rot().W();
+
+    transform_broadcaster_->sendTransform (transform);
   
 
 }
@@ -250,12 +259,19 @@ void GazeboRosP3DTF::UpdateChild()
       ROS_WARN_NAMED("p3d", "Negative update time difference detected.");
       this->last_time_ = cur_time;
   }
-  publishTF();
+
   // rate control
   if (this->update_rate_ > 0 &&
       (cur_time-this->last_time_).Double() < (1.0/this->update_rate_))
     return;
 
+  //control transform publish
+  static ros::Time last_time;
+  if(last_time!= ros::Time::now()){
+    publishTF();
+    last_time = ros::Time::now();
+  }
+  
   if (this->pub_.getNumSubscribers() > 0)
   {
     // differentiate to get accelerations
@@ -380,6 +396,7 @@ void GazeboRosP3DTF::UpdateChild()
 
       // save last time stamp
       this->last_time_ = cur_time;
+      publishTF();
     }
   }
 #ifdef ENABLE_PROFILER
