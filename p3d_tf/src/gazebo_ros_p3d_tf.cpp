@@ -216,24 +216,32 @@ void GazeboRosP3DTF::Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf)
 ////////////////////////////////////////////////////////////////////////////////
 void GazeboRosP3DTF::publishTF()
 {
-    ignition::math::Pose3d pose =  this->link_->WorldPose();
-    
-    geometry_msgs::TransformStamped transform;
+  static ros::Time last_time;
+  ros::Time cur_time = ros::Time::now();
+  
+  if(last_time == cur_time){
+    return;
+  }
+  last_time = cur_time;
 
-    transform.header.stamp =  ros::Time::now();
-    transform.header.frame_id = this->frame_name_; // current: world
-    transform.child_frame_id = this->link_name_; // child: base
+  ignition::math::Pose3d pose =  this->link_->WorldPose();
+  
+  geometry_msgs::TransformStamped transform;
 
-    transform.transform.translation.x = pose.Pos().X();
-    transform.transform.translation.y = pose.Pos().Y();
-    transform.transform.translation.z = pose.Pos().Z();
+  transform.header.stamp =  cur_time;
+  transform.header.frame_id = this->frame_name_; // current: world
+  transform.child_frame_id = this->link_name_; // child: base
 
-    transform.transform.rotation.x = pose.Rot().X();
-    transform.transform.rotation.y = pose.Rot().Y();
-    transform.transform.rotation.z = pose.Rot().Z();
-    transform.transform.rotation.w = pose.Rot().W();
+  transform.transform.translation.x = pose.Pos().X();
+  transform.transform.translation.y = pose.Pos().Y();
+  transform.transform.translation.z = pose.Pos().Z();
 
-    transform_broadcaster_->sendTransform (transform);
+  transform.transform.rotation.x = pose.Rot().X();
+  transform.transform.rotation.y = pose.Rot().Y();
+  transform.transform.rotation.z = pose.Rot().Z();
+  transform.transform.rotation.w = pose.Rot().W();
+
+  transform_broadcaster_->sendTransform (transform);
   
 
 }
@@ -266,11 +274,7 @@ void GazeboRosP3DTF::UpdateChild()
     return;
 
   //control transform publish
-  static ros::Time last_time;
-  if(last_time!= ros::Time::now()){
-    publishTF();
-    last_time = ros::Time::now();
-  }
+  publishTF();
   
   if (this->pub_.getNumSubscribers() > 0)
   {
@@ -396,7 +400,6 @@ void GazeboRosP3DTF::UpdateChild()
 
       // save last time stamp
       this->last_time_ = cur_time;
-      publishTF();
     }
   }
 #ifdef ENABLE_PROFILER
