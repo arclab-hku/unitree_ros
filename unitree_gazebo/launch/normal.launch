@@ -58,7 +58,7 @@
 
     <!-- convert joint states to TF transforms for rviz, etc -->
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"
-          respawn="false" output="screen">
+          respawn="false" output="screen" args = "">
         <remap from="/joint_states" to="/$(arg rname)_gazebo/joint_states"/>
     </node>
 
