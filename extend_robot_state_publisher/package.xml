@@ -6,6 +6,7 @@
     which allows you use other rosparam variables to load the robot urdf.
   </description>
 
+  <maintainer email="holmeszhui@gmail.com">holmes</maintainer>
 
   <license>BSD</license>
 
@@ -28,6 +29,4 @@
 
   <exec_depend>liborocos-kdl</exec_depend>
 
-  <test_depend>rosbag</test_depend>
-  <test_depend>rostest</test_depend>
 </package>
