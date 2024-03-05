@@ -8,9 +8,9 @@
 git clone https://github.com/teamgrit-lab/ICRA2024_Quadruped_Robot_Challenges.git
 ```
 
-2. Clone the rl controller package in the `src` folder too (you might ask administrator for accessment).
+2. Clone the rl controller package in the `src` folder and chekcout to `dev/QRC` (you might ask administrator for accessment).
 ```bash
-git clone https://github.com/arclab-hku/Arclab_RL_Controller.git
+git clone https://github.com/arclab-hku/Arclab_RL_Controller.git -b dev/QRC
 ```
 
 3. Clone this repository in the same palce and chekcout to `dev/QRC`.
