@@ -9,11 +9,22 @@
     </gazebo>
 
     <gazebo>
-        <plugin name="p3d_tf" filename="libgazebo_ros_p3d_tf.so">
+        <plugin name="p3d" filename="libgazebo_ros_p3d.so">
             <always_on>true</always_on>
             <update_rate>200</update_rate>
             <bodyName>base</bodyName>
             <topicName>/torso_odom</topicName>
+            <xyzOffset>0 0 0</xyzOffset>
+            <rpyOffset>0 0 0</rpyOffset>
+        </plugin>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="p3d_tf" filename="libgazebo_ros_p3d_tf.so">
+            <always_on>true</always_on>
+            <update_rate>200</update_rate>
+            <bodyName>base</bodyName>
+            <topicName>/body_pose_ground_truth</topicName>
             <frameName>world</frameName>
             <xyzOffset>0 0 0</xyzOffset>
             <rpyOffset>0 0 0</rpyOffset>

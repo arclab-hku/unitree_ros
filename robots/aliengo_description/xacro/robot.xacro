@@ -147,7 +147,7 @@
         <origin rpy="${PI} 0 0" xyz="0.2785 0.0125 0.0167"/>
     </xacro:depthCamera> -->
     <xacro:realsense_d435_camera name ="camera_d435" parent="base">
-        <origin rpy="0 0.785 0" xyz="0.34 0 0" />
+        <origin rpy="0.0 0.0 0.0" xyz="0.34 0 0" />
     </xacro:realsense_d435_camera>
 
 </robot>
