@@ -1,10 +1,13 @@
 <?xml version="1.0"?>
-<robot>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <!-- ros_control plugin -->
+    <xacro:arg name="robot_ns" default="/"/>
     <gazebo>
         <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/go1_gazebo</robotNamespace>
+            <!-- <robotNamespace>/robot1/go1_gazebo</robotNamespace> -->
+            <robotNamespace>${robot_ns}/go1_gazebo</robotNamespace>
             <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            <robotParam>${robot_ns}/robot_description</robotParam>
         </plugin>
     </gazebo>
 
@@ -26,7 +29,7 @@
             <always_on>true</always_on>
             <update_rate>200</update_rate>
             <bodyName>base</bodyName>
-            <topicName>/torso_odom</topicName>
+            <topicName>torso_odom</topicName>
             <frameName>world</frameName>
             <xyzOffset>0 0 0</xyzOffset>
             <rpyOffset>0 0 0</rpyOffset>
