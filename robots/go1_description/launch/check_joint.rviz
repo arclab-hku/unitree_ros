@@ -231,8 +231,8 @@ Visualization Manager:
           Show Trail: false
           Value: true
       Name: RobotModel
-      Robot Description: robot_description
-      TF Prefix: ""
+      Robot Description: /robot1/robot_description
+      TF Prefix: "robot1"
       Update Interval: 0
       Value: true
       Visual Enabled: true
@@ -282,7 +282,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.009999999776482582
       Style: Flat Squares
-      Topic: /cam1/point_cloud_face
+      Topic: /robot1/cam1/point_cloud_face
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -312,7 +312,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.009999999776482582
       Style: Flat Squares
-      Topic: /cam2/point_cloud_chin
+      Topic: /robot1/cam2/point_cloud_chin
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -342,7 +342,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.009999999776482582
       Style: Flat Squares
-      Topic: /cam3/point_cloud_left
+      Topic: /robot1/cam3/point_cloud_left
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -372,7 +372,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.009999999776482582
       Style: Flat Squares
-      Topic: /cam4/point_cloud_right
+      Topic: /robot1/cam4/point_cloud_right
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -402,7 +402,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.009999999776482582
       Style: Flat Squares
-      Topic: /cam5/point_cloud_rearDown
+      Topic: /robot1/cam5/point_cloud_rearDown
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -423,14 +423,14 @@ Visualization Manager:
     - Class: rviz/Measure
     - Class: rviz/SetInitialPose
       Theta std deviation: 0.2617993950843811
-      Topic: /initialpose
+      Topic: /robot1/initialpose
       X std deviation: 0.5
       Y std deviation: 0.5
     - Class: rviz/SetGoal
-      Topic: /move_base_simple/goal
+      Topic: /robot1/move_base_simple/goal
     - Class: rviz/PublishPoint
       Single click: true
-      Topic: /clicked_point
+      Topic: /robot1/clicked_point
   Value: true
   Views:
     Current:

@@ -161,8 +161,8 @@ Visualization Manager:
           Show Trail: false
           Value: true
       Name: RobotModel
-      Robot Description: robot_description
-      TF Prefix: ""
+      Robot Description: /robot2/robot_description
+      TF Prefix: "robot2"
       Update Interval: 0
       Value: true
       Visual Enabled: true
