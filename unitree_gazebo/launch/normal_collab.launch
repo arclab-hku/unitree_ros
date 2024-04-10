@@ -1,0 +1,42 @@
+<launch>
+    <arg name="wname" default="earth"/>
+    <arg name="rname1" default="go1"/>
+    <arg name="rname2" default="aliengo"/>
+    <arg name="robot_ns_1" default="robot1"/>
+    <arg name="robot_ns_2" default="robot2"/>
+    <arg name="conveyor" default="0"/>
+
+    <arg name="paused" default="true"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+    <arg name="user_debug" default="false"/>
+    
+    <!-- empty_world.launch -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find unitree_gazebo)/worlds/$(arg wname).world"/>
+        <arg name="debug" value="$(arg debug)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+    </include>
+
+    <include file="$(find unitree_gazebo)/launch/robot1.launch">
+        <arg name="rname" value="$(arg rname1)"/>
+        <arg name="robot_ns" value="$(arg robot_ns_1)"/>
+        <arg name="user_debug" value="$(arg user_debug)"/>
+    </include>
+    
+    <include file="$(find unitree_gazebo)/launch/robot2.launch">
+        <arg name="rname" value="$(arg rname2)"/>
+        <arg name="robot_ns" value="$(arg robot_ns_2)"/>
+        <arg name="user_debug" value="$(arg user_debug)"/>
+    </include>
+
+
+
+    <!-- <node pkg="unitree_gazebo" type="servo" name="servo" required="true" output="screen"/> -->
+
+</launch>

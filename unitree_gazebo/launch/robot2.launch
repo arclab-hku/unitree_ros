@@ -1,0 +1,44 @@
+<launch>
+    <arg name="rname" default="aliengo"/>
+    <arg name="robot_ns" default="robot2"/>
+    <arg name="user_debug" default="false"/>
+    <arg name="dollar" value="$"/>
+
+    <!-- configuration for robot2 -->
+    <group ns="robot2">
+        <arg name="robot_path_2" value="(find $(arg rname)_description)"/>
+        <!-- Load the URDF into the ROS Parameter Server -->
+        <param name="robot_description"
+            command="$(find xacro)/xacro --inorder '$(arg dollar)$(arg robot_path_2)/xacro/robot.xacro' 
+            DEBUG:=$(arg user_debug) robot_ns:=$(arg robot_ns)"/>
+        <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen"
+              args="-urdf -x 1.0 -z 0.1 -model robot2 -param robot_description -unpause -robot_namespace /robot2"/>
+              <param name="start_delay" value="2"/>
+        <rosparam file="$(arg dollar)$(arg robot_path_2)/config/robot_control.yaml" command="load"/>
+
+        <node pkg="controller_manager" type="spawner" name="controller_spawner" respawn="false"
+            output="screen" ns="$(arg rname)_gazebo" args="joint_state_controller
+            FL_hip_controller FL_thigh_controller FL_calf_controller
+            FR_hip_controller FR_thigh_controller FR_calf_controller
+            RL_hip_controller RL_thigh_controller RL_calf_controller
+            RR_hip_controller RR_thigh_controller RR_calf_controller 
+            --timeout 50"/>
+
+        <!-- convert joint states to TF transforms for rviz, etc -->
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"
+            respawn="false" output="screen">
+            <remap from="joint_states" to="$(arg rname)_gazebo/joint_states"/>
+            <param name="start_delay" value="2"/>
+            <param name="tf_prefix" value="robot2"/>
+        </node>
+
+        <!-- load the parameter unitree_controller -->
+        <include file="$(find unitree_controller)/launch/set_ctrl.launch">
+            <arg name="rname" value="$(arg rname)"/>
+        </include>
+
+        <!-- add a low state publisher -->
+        <node pkg="unitree_controller" type="unitree_gazebo_low_state_pub" name="gazebo_low_state_pub" output="screen"/>
+        
+    </group>
+</launch>   
