@@ -1,6 +1,9 @@
 # Introduction
 Here are the ROS packages of Unitree robots, namely Laikago, Aliengo and A1. You can load robots and joint controllers in Gazebo, so you can do low-level control(control the torque, position and angular velocity) on the robot joints. Please watch out that the Gazebo simulation cannot do high-level control, namely walking. Besides of these simulation functions, you can also control your real robots in ROS by the `unitree_legged_real`. For real robots, you can do high-level and low-level control by our ROS packages.
 
+This branch allows multiple robots to be controlled by the same computer. 
+
+
 ## Packages:
 Robot description: `a1_description`, `aliengo_description`, `laikago_description`
 
@@ -205,3 +208,14 @@ Add this overrides is very important. On my system, my libcxxwrap-julia is at
    The script will create a loop to read joint angles. Press ctrl-c to exist the loop.
 
    test_julia_swing_ctrl.jl will move the front right leg of the robot, so be careful the front right leg has enough space to move. 
+
+   ## Multi-robot control
+   You can start the gazebo simulation by 
+   ```
+   roslaunch unitree_gazebo normal_collab.launch wname:=stairs_new
+   ```
+   This launch file will start two robots in the simulation. Currently, 'robot1' and 'robot2' are supported, indicating 'go1' and 'aliengo' respectively.
+   
+   ## TODO 
+    - [ ] allow more robots to the simulation
+    - [ ] refactor the namespace handling in the gazebo plugin
