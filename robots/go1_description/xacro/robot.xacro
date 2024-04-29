@@ -12,6 +12,7 @@
     <xacro:include filename="$(find go1_description)/xacro/depthCamera.xacro"/>
     <xacro:include filename="$(find go1_description)/xacro/ultraSound.xacro"/>
     <!-- <xacro:include filename="$(find go1_gazebo)/launch/stairs.urdf.xacro"/> -->
+    <xacro:include filename="$(find go1_description)/xacro/camera_d435.xacro" />
 
     <!-- <xacro:stairs stairs="15" xpos="0" ypos="0" zpos="0" /> -->
 
@@ -51,10 +52,16 @@
             </geometry>
             <!-- <material name="orange"/> -->
         </visual>
-        <collision>
+        <!-- <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
                 <box size="${trunk_length} ${trunk_width} ${trunk_height}"/>
+            </geometry>
+        </collision> -->
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://go1_description/meshes/trunk.dae" scale="1 1 1"/>
             </geometry>
         </collision>
         <inertial>
@@ -190,4 +197,8 @@
     <xacro:ultraSound name="face">
         <origin rpy="0 0 0" xyz="0.2747 0.0 -0.0088"/>
     </xacro:ultraSound>
+
+    <xacro:realsense_d435_camera name ="camera_d435" parent="base">
+        <origin rpy="0 0 0" xyz="0.268 0.02 0" />
+    </xacro:realsense_d435_camera>
 </robot>
