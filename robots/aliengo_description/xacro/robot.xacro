@@ -6,8 +6,8 @@
     <xacro:include filename="$(find aliengo_description)/xacro/materials.xacro"/>
     <xacro:include filename="$(find aliengo_description)/xacro/leg.xacro"/>
     <xacro:include filename="$(find aliengo_description)/xacro/gazebo.xacro"/>
-    <xacro:include filename="$(find aliengo_description)/xacro/depthCamera.xacro"/>
-    <xacro:include filename="$(find aliengo_description)/xacro/camera_d435.xacro" />
+    <!-- <xacro:include filename="$(find aliengo_description)/xacro/depthCamera.xacro"/> -->
+    <!-- <xacro:include filename="$(find aliengo_description)/xacro/camera_d435.xacro" /> -->
 
     <!-- Rollover Protection mode will add an additional stick on the top, use "true" or "false" to switch it. -->
     <xacro:property name="rolloverProtection" value="false"/>
@@ -146,8 +146,8 @@
     <!-- <xacro:depthCamera camID="1" name="face">
         <origin rpy="${PI} 0 0" xyz="0.2785 0.0125 0.0167"/>
     </xacro:depthCamera> -->
-    <xacro:realsense_d435_camera name ="camera_d435" parent="base">
+    <!-- <xacro:realsense_d435_camera name ="camera_d435" parent="base">
         <origin rpy="0 0.785 0" xyz="0.34 0 0" />
-    </xacro:realsense_d435_camera>
+    </xacro:realsense_d435_camera> -->
 
 </robot>
