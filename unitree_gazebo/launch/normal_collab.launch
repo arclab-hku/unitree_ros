@@ -42,8 +42,8 @@
         command="$(find xacro)/xacro '$(find sim_world)/world/gpt/xacro/terrain_2.xacro'" />
 
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-    <node name="spawn_urdf_1" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-x -7 -y -0.5 -param terrain_3_description -urdf -model ramp"/>
-    <node name="spawn_urdf_2" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-x -2 -y -1.5 -param terrain_2_description -urdf -model stair"/>
+    <node name="spawn_urdf_1" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-x -7 -y -0.5 -z 1 -param terrain_3_description -urdf -model ramp"/>
+    <node name="spawn_urdf_2" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-x -2 -y -1.5 -z 1 -param terrain_2_description -urdf -model stair"/>
 
 
     <!-- <node pkg="unitree_gazebo" type="servo" name="servo" required="true" output="screen"/> -->
